@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferdos Bhai</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<video id="video" controls></video>
+
+<script>
+    if (Hls.isSupported()) {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('http://tv.cloudcdn.me/live/00:1A:79:B7:2F:EA/SN_1697176355/103.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            video.play();
+        });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = 'https://edge01.iptv.digijadoo.net/live/maasranga/playlist.m3u8?md5=NHV6J25naGuoqZ-GG6aKAA&expires=1726788729&user=d477246e9e724f81a011b847457e71c4';
+        video.addEventListener('loadedmetadata', function() {
+            video.play();
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FERDOS BHAI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="ENJOY FREE LIVE TV">
+    <meta name="keywords" content="LIVETV, SPORTS, MOVIES, MUSIC">
+    <meta name="author" content="Ferdos Bhai">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+    <script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
+    <script src="assets/js/jwplayer.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.postimg.cc/VLV8Lp3w/avatar-1002046717675.jpg">
+    <link rel="stylesheet" type="text/css" href="./ferdosalom-fredflix1.css">
+    <script type='text/javascript' src='https://content.jwplatform.com/libraries/IDzF9Zmk.js'></script>
+</head>
+
+<body>
+
+    <div id="my-video"></div>
+
+    <script type="text/javascript">
+        var playerInstance = jwplayer("my-video");
+
+        playerInstance.setup({
+            file: "https://ottbangla.com/themes/chunklist.m3u8?load=215218dc50b20e9ce79d8642721f2e2b6cf8e2f25b4033ab389a34ca296c3f266a32b45a438edb48c7aa38103b25a87aa0a8d0f071286dd600fd9862b715b1478ef9b064679e174ecaad791de4ba380591774ad38fdf7edeeba6296ea58ea0b87093ebfb8c4475b822dad67217fe36128f38f813b069f4f6f0a85ce49b44ee044fe2f63bf8d69cdd1993914e139bf6d52df20d29738d370fb971b4edbd187ff7007bf75b838619f96cdec029dcbe19e2b9bfcb962eeec8bd783cd69b4117ac6ac388541ef3fde39cd9c19bd1f1a5156a04d2af73e75ef1bd12f0372be1aaeb9a4bf5425acf187b255724dc5510ae5c2f75df86414ebc9ae474c1f8bfe26f2ec23b5ee393784fc3ae50e721c679592e4870b6cd7a3ecaacd9e0e5b0cbeb2f75acd7c9b9ba930301a764d032012f3cca92d1e654341dbbaaa0748027d54e3dbda5a91d531c83dc782da928a8ad49edc5c50c7225b226dd5cc5f68ab17507a62bb37b3a329681463aaa540be0b2002af91d",
+            width: "100%",
+            height: "100%",
+            aspectratio: "16:9",
+            controls: true,
+            stretching: "uniform",
+            autostart: true,  //     
+            allowfullscreen: true,
+            pip: true,  // PiP   
+            skin: {
+                name: "netflix"
+            }
+        });
+
+        //  
+        playerInstance.setMute(false);
+
+        playerInstance.on('play', function() {
+            playerInstance.setFullscreen(false);  // 
+        });
+
+    </script>
+</body>
+
+</html>
