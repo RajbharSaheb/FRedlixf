@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>FERDOS BHAI</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="ENJOY FREE LIVE TV">
-    <meta name="keywords" content="LIVETV, SPORTS, MOVIES, MUSIC">
-    <meta name="author" content="Ferdos Bhai">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
-    <script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
-    <script src="assets/js/jwplayer.js"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="https://i.postimg.cc/VLV8Lp3w/avatar-1002046717675.jpg">
-    <link rel="stylesheet" type="text/css" href="./ferdosalom-fredflix1.css">
-    <script type='text/javascript' src='https://content.jwplatform.com/libraries/IDzF9Zmk.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferdos Bhai</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        video {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            background-color: #000;
+        }
+    </style>
 </head>
-
 <body>
 
-    <div id="my-video"></div>
+<video id="video" controls></video>
 
-    <script type="text/javascript">
-        var playerInstance = jwplayer("my-video");
-
-        playerInstance.setup({
-            file: "https://medialive.akash-go.com/out/v1/a1a4886d7bdd4797a0eebb69e2c67554/index.mpd",
-            width: "100%",
-            height: "100%",
-            aspectratio: "16:9",
-            controls: true,
-            stretching: "uniform",
-            autostart: true,  // অটো প্লে সক্রিয় করা হয়েছে
-            allowfullscreen: true,
-            pip: true,  // PiP মোড সক্রিয় করা
-            skin: {
-                name: "netflix"
-            },
-            drm: {
-                clearkey: {
-                    keyId: "efefb4873c9547d1a1a7a0ac2ee98b4e",
-                    key: "52aaaecf9edba038077f07a8a94f7f4e"
-                }
-            }
+<script>
+    if (Hls.isSupported()) {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('https://allinonereborn.com/live/live.php?id=6226&vtoken=&e=.m3u8');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            video.play();
         });
-
-        // সাউন্ড শুরু থেকেই চালু থাকবে
-        playerInstance.setMute(false);
-
-        playerInstance.on('play', function() {
-            playerInstance.setFullscreen(false);  // প্লে শুরু হলে ফুলস্ক্রিন মোডে প্রবেশ করবে
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = 'https://utube.buddyxiptv.com/@JamunaTVbd.m3u8';
+        video.addEventListener('loadedmetadata', function() {
+            video.play();
         });
+    }
+</script>
 
-    </script>
 </body>
-
 </html>
